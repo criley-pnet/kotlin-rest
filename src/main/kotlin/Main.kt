@@ -8,13 +8,12 @@ import org.slf4j.event.Level
 import service.setRoutes
 
 fun main(args: Array<String>) {
-    val server = embeddedServer(
+    embeddedServer(
         Netty,
         port = 8080,
-        watchPaths = listOf("service"),
+        watchPaths = listOf("kotlin-rest"),
         module = Application::mainModule
-    )
-    server.start(wait = true)
+    ).start(wait = true)
 }
 
 fun Application.mainModule() {

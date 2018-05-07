@@ -1,4 +1,3 @@
-
 import io.ktor.application.Application
 import io.ktor.application.install
 import io.ktor.features.CallLogging
@@ -9,10 +8,12 @@ import org.slf4j.event.Level
 import service.setRoutes
 
 fun main(args: Array<String>) {
-    val server = embeddedServer(Netty,
-            port = 8080,
-            watchPaths = listOf("service"),
-            module = Application::mainModule)
+    val server = embeddedServer(
+        Netty,
+        port = 8080,
+        watchPaths = listOf("service"),
+        module = Application::mainModule
+    )
     server.start(wait = true)
 }
 

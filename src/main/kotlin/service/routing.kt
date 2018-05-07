@@ -14,7 +14,7 @@ fun Routing.setRoutes() {
         }
     }
     route("/api") {
-        route ("roll/{dice}") {
+        route("roll/{dice}") {
             get {
                 val command: String = call.parameters["dice"] ?: ""
                 val result = parseCommand(command)
@@ -23,7 +23,7 @@ fun Routing.setRoutes() {
             }
         }
     }
-    get ("/error") {
+    get("/error") {
         throw RuntimeException("Server Error: Test Error Message")
     }
 }

@@ -1,13 +1,13 @@
 package service
 
 
-fun parseCommand(command :String) :Int {
+fun parseCommand(command: String): Int {
     val packed = command.trimWhitespace()
 
     return evalCommand(packed)
 }
 
-fun evalCommand(command :String) :Int {
+fun evalCommand(command: String): Int {
     val sumExpression = command.splitOn('+')
     if (sumExpression != null) {
         //evaluate sum
@@ -17,7 +17,7 @@ fun evalCommand(command :String) :Int {
     val rollExpression = command.splitOn('d')
     if (rollExpression != null) {
         //evaluate die roll
-        val times :Int = rollExpression.first.toIntOrNull() ?: 1
+        val times: Int = rollExpression.first.toIntOrNull() ?: 1
 
         var sum = 0
         repeat(times, {
@@ -30,11 +30,11 @@ fun evalCommand(command :String) :Int {
     return command.toInt()
 }
 
-fun String.trimWhitespace() :String {
+fun String.trimWhitespace(): String {
     return this.replace("\\s".toRegex(), "")
 }
 
-fun String.splitOn(separator :Char) :Pair<String, String>? {
+fun String.splitOn(separator: Char): Pair<String, String>? {
     val index = this.indexOf(separator)
     if (index == -1) {
         return null
